@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/move.yintao1.05.js" ></script>
+		<script>
+			function toast(texs){
+				if(!toast.instance){
+					toast.instance={
+						body:document.createElement("div"),
+						setinfo:function(msg){
+							this.info=msg;
+							//console.log("--"+msg);
+						},
+						init:function(){
+							this.body.style.width="200px";
+							this.body.style.height="100px";
+							this.body.style.background="red";
+							this.body.style.position="absolute";
+							this.body.innerText=this.info;
+							this.body.style.color="black";
+							document.body.appendChild(this.body);
+							console.log("--"+this.body.innerText);
+							animate(this.body,{left:800},{buffer: "elasitic"});
+						},
+						show:function(){
+							this.init();
+							this.body.style.display="block";
+							
+						},
+						hide:function(){
+							this.body.style.display="none";
+						},
+						
+							
+						
+					}
+				}
+				toast.instance.setinfo(texs);
+			    return toast.instance;
+			}
+			onload=function(){
+				new toast("这是一个弹出框").show();
+			}
+		
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
